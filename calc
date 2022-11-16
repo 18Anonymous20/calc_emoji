@@ -1,0 +1,61 @@
+num_1 = int(input('Введи первое число:'))
+num_2 = int(input('Введи второе число:'))
+print('Доступные операции:', 'сложение', 'вычитание', 'умножение', 'деление', 'целочисленное деление', 'деление с остатком', 'возведение в степень', sep='\n')
+operation = input('Напиши, какую операцию ты хочешь выполнить:')
+class Calc:
+    numbers ={'1':'🙂',
+              '2':'👍',
+              '3':'🐶',
+              '4':'🔥',
+              '5':'🥮',
+              '6':'💪',
+              '7':'✋',
+              '8':'⚽',
+              '9':'⚓',
+              '0':'❤',
+              '.':'.'
+    }
+
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def int_to_numbers(self, num):
+        return ''.join(self.numbers[char] for char in str(num))
+
+    def sum(self):
+        return self.int_to_numbers(self.a + self.b)
+
+    def diff(self):
+        return self.int_to_numbers(self.a - self.b)
+
+    def mul(self):
+        return self.int_to_numbers(self.a * self.b)
+
+    def div(self):
+        return self.int_to_numbers(self.a / self.b)
+
+    def voz(self):
+        return self.int_to_numbers(self.a**self.b)
+
+    def div_01(self):
+        return self.int_to_numbers(self.a // self.b)
+
+    def div_02(self):
+        return self.int_to_numbers(self.a % self.b)
+
+calc = Calc(num_1,num_2)
+if operation == 'сложение':
+    print(calc.sum())
+if operation == 'вычитание':
+    print(calc.diff())
+if operation == 'умножение':
+    print(calc.mul())
+if operation == 'деление':
+    print(calc.div())
+if operation == 'целочисленное деление':
+    print(calc.div_01())
+if operation == 'деление с остатком':
+    print(calc.div_02())
+if operation == 'возвести в степень':
+    print(calc.voz())
